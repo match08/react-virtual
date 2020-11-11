@@ -73,12 +73,26 @@ export function useVirtual({
     const element = parentRef.current
     if (!element) { return }
 
-    const onScroll = () => {
-      const scrollOffset = element[scrollKey]
+    const onScroll = (event) => {
+      let scrollOffset = 0;
+      //CustomEvent
+      if(event && event.detail)
+      {
+        scrollOffset = event.detail[scrollKey];
+      }
+      else if( element[scrollKey] > 0 )
+      {
+         scrollOffset = element[scrollKey];
+      }
+      else if(latestRef.current.scrollOffset)
+      {
+         
+        scrollOffset = latestRef.current.scrollOffset;
+      }
+    
       latestRef.current.scrollOffset = scrollOffset
       setRange(prevRange => calculateRange(latestRef.current, prevRange))
     }
-
     // Determine initially visible range
     onScroll()
 
