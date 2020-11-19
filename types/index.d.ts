@@ -12,7 +12,7 @@ export type VirtualItem = {
   start: number
   end: number
   size: number
-  measureRef: React.RefObject<any>
+  measureRef?: ((instance: any) => void) | React.RefObject<any> | any
 }
 
 declare function useVirtual<T>(options: {
@@ -39,6 +39,8 @@ declare function useVirtual<T>(options: {
   totalSize: number
   scrollToOffset: (index: number, options?: ScrollToOffsetOptions) => void
   scrollToIndex: (index: number, options?: ScrollToIndexOptions) => void
+  checked: () => void
+  // checkRange: (offset: number, len?: number) => void
 }
 
 export { useVirtual }

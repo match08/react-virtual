@@ -1,6 +1,6 @@
 {
   "name": "react-virtual",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Hooks for virtualizing scrollable elements in React",
   "author": "tannerlinsley",
   "license": "MIT",
@@ -40,7 +40,7 @@
     "ts-toolbelt": "^6.4.2"
   },
   "peerDependencies": {
-    "react": "^16.6.3"
+    "react": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
@@ -72,8 +72,8 @@
     "is-ci-cli": "^2.0.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "rollup": "^1.32.0",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",

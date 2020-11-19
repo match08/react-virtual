@@ -44,6 +44,7 @@ export function useVirtual({
   )
 
   const [measuredCache, setMeasuredCache] = React.useState({})
+  const [checkUpdate, setCheckUpdate] = React.useState(0)
 
   const measurements = React.useMemo(() => {
     const measurements = []
@@ -139,7 +140,7 @@ export function useVirtual({
     }
 
     return virtualItems
-  }, [range.start, range.end, measurements, sizeKey, defaultScrollToFn])
+  }, [range.start, range.end, measurements, sizeKey, defaultScrollToFn, checkUpdate])
 
   const mountedRef = React.useRef()
 
@@ -222,11 +223,16 @@ export function useVirtual({
     [tryScrollToIndex]
   )
 
+  const checked = () => {
+    setCheckUpdate(checkUpdate + 1)
+  }
+ 
   return {
     virtualItems,
     totalSize,
     scrollToOffset,
     scrollToIndex,
+    checked
   }
 }
 
